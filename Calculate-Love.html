@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Manjana Aloka - Full-Stack Developer | Portfolio & Projects</title>
-    <meta name="description" content="Full-stack developer specializing in responsive web design, Discord bots, and modern web applications. View my portfolio of HTML, CSS, JavaScript, NodeJS, and PHP projects. Based in Sri Lanka.">
-    <meta name="keywords" content="HTML, CSS, JavaScript, NodeJS, PHP, Discord Bot, Web Developer, Frontend Developer, Portfolio, Blog, Tech Insights">
+    <title>❤️ Zodiac Love Compatibility ❤️</title>
+    <meta name="description" content="❤️ Zodiac Love Compatibility ❤️ - Discover your love compatibility based on zodiac signs! Select your sign and your partner's sign to calculate your love percentage. Perfect for fun and insights into your relationship dynamics. Try it now!">
+    <meta name="keywords" content="Love Calculator, Zodiac Compatibility, Astrology Love Match, Relationship Insights, Fun Love Test, Zodiac Signs, Love Percentage, Compatibility Test, Astrology Fun, Love Match Calculator">
     <meta name="author" content="Manjana Aloka">
 
     <!-- Open Graph Meta Tags / Facebook -->
-    <meta property="og:title" content="Manjana Aloka - Full-Stack Developer | Portfolio & Projects">
-    <meta property="og:description" content="Full-stack developer specializing in responsive web design, Discord bots, and modern web applications. View my portfolio of HTML, CSS, JavaScript, NodeJS, and PHP projects. Based in Sri Lanka.">
-    <meta property="og:image" content="assets/images/portrait.png">
-    <meta property="og:url" content="https://manjanaaloka.github.io/manjana/">
-    <meta property="og:type" content="https://manjanaaloka.github.io/manjana/">
+    <meta property="og:title" content="❤️ Zodiac Love Compatibility ❤️">
+    <meta property="og:description" content="❤️ Zodiac Love Compatibility ❤️ - Discover your love compatibility based on zodiac signs! Select your sign and your partner's sign to calculate your love percentage. Perfect for fun and insights into your relationship dynamics. Try it now!">
+    <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/5519ab2ee4b02a4410b6a7c6/1573572780880-TNGN7R4EX4N141SBXP50/beautiful-hands-heart-5390.jpg?format=2500w">
+    <meta property="og:url" content="https://manjanaaloka.github.io/manjana/Calculate-Love.html">
+    <meta property="og:type" content="https://manjanaaloka.github.io/manjana/Calculate-Love.html">
 
 
 
@@ -354,6 +354,7 @@
         }
     </style>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar">
@@ -367,9 +368,7 @@
             <div class="container">
                 <a href="/" class="navbar-brand logo">
                     <span>
-                        << /span>
-                            <span class="logo-name">Manjana</span>
-                    <span>/></span>
+                        < <span class="logo-name">Manjana</span> /></span>
                 </a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarMenu">
                     <div class="offcanvas-header">
@@ -384,17 +383,23 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav nav-underline justify-content-end flex-grow-1">
                             <li class="nav-item" data-aos="fade-down" data-aos-delay="500" data-bs-dismiss="offcanvas">
-                                <a href="#hero" class="nav-link active" aria-current="page">Home</a></li>
+                                <a href="#hero" class="nav-link active" aria-current="page">Home</a>
+                            </li>
                             <li class="nav-item" data-aos="fade-down" data-aos-delay="600" data-bs-dismiss="offcanvas">
-                                <a href="#about" class="nav-link">About</a></li>
+                                <a href="#about" class="nav-link">About</a>
+                            </li>
                             <li class="nav-item" data-aos="fade-down" data-aos-delay="700" data-bs-dismiss="offcanvas">
-                                <a href="#skills" class="nav-link">Skills</a></li>
+                                <a href="#skills" class="nav-link">Skills</a>
+                            </li>
                             <li class="nav-item" data-aos="fade-down" data-aos-delay="800" data-bs-dismiss="offcanvas">
-                                <a href="#projects" class="nav-link">Projects</a></li>
+                                <a href="#projects" class="nav-link">Projects</a>
+                            </li>
                             <li class="nav-item" data-aos="fade-down" data-aos-delay="900" data-bs-dismiss="offcanvas">
-                                <a href="#blogs" class="nav-link">Blogs</a></li>
+                                <a href="#blogs" class="nav-link">Blogs</a>
+                            </li>
                             <li class="nav-item" data-aos="fade-down" data-aos-delay="1000" data-bs-dismiss="offcanvas">
-                                <a href="#contact" class="nav-link">Contact</a></li>
+                                <a href="#contact" class="nav-link">Contact</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -409,7 +414,7 @@
     <!-- feature -->
     <section id="feature">
         <div class="container">
-            <h6 class="text-center"><span class="btn btn-sm theme-button theme-text">What I've done?</span></h6>
+            <h6 class="text-center"><span class="btn btn-sm theme-button theme-text" style="font-size: 20px;">Calculate Love</span></h6>
             <h2 class="section-heading text-center">Projects</h2>
             <div class="row justify-content-center mt-4 gy-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="love-calc-card">
@@ -463,8 +468,90 @@
             </div>
         </div>
     </section>
+    <button id="hi-btn">hi</button>
 
+    <script src="assets/js/ajax.js"></script>
+    <script>
+        // 1. Helper Function: නමේ අකුරුවලට අගයක් දීම (A=1, B=2, ... Z=26)
+        function getWordValue(word) {
+            word = word.toUpperCase();
+            let sum = 0;
+            for (let i = 0; i < word.length; i++) {
+                sum += word.charCodeAt(i) - 64;
+            }
+            return sum;
+        }
 
+        // 2. Main Function: ගණනය කිරීම සහ ප්‍රතිඵලය පෙන්වීම
+        function calculateLove() {
+            // ID names වෙනස් කර ඇති නිසා මෙහිදීත් ඒවා නිවැරදි කරන්න
+            const sign1Name = document.getElementById('loveCalcSign1').value;
+            const sign2Name = document.getElementById('loveCalcSign2').value;
+
+            const resultArea = document.getElementById('loveCalcResultArea');
+            const circularProgress = document.getElementById('loveCalcCircularProgress');
+            const progressValue = document.getElementById('loveCalcProgressValue');
+            const loveMessage = document.getElementById('loveCalcLoveMessage');
+
+            // ප්‍රතිඵල පෙන්නුම් කරන කොටස මතු කිරීම
+            resultArea.classList.add('show');
+
+            // --- ගණිතමය ගණනය කිරීම (The Calculation Logic) ---
+
+            let value1 = getWordValue(sign1Name);
+            let value2 = getWordValue(sign2Name);
+
+            let totalSum = value1 + value2;
+
+            let percentage = (totalSum * 7) % 101;
+
+            if (percentage < 30) {
+                percentage += 35;
+            }
+            if (percentage > 100) percentage = 100;
+
+            // --- ප්‍රතිඵලය ලස්සනට පෙන්වීම (Animation) ---
+
+            let startValue = 0;
+            let speed = 20;
+
+            if (window.loveCalcProgressTimer) {
+                clearInterval(window.loveCalcProgressTimer);
+            }
+
+            window.loveCalcProgressTimer = setInterval(() => {
+                if (startValue < percentage) {
+                    startValue++;
+                } else if (startValue > percentage) {
+                    startValue--;
+                }
+
+                progressValue.textContent = `${startValue}%`;
+                circularProgress.style.background = `conic-gradient(var(--love-calc-primary-color) ${startValue * 3.6}deg, var(--love-calc-border-color) ${startValue * 3.6}deg)`;
+
+                if (startValue == percentage) {
+                    clearInterval(window.loveCalcProgressTimer);
+                    showFinalMessage(percentage);
+                }
+            }, speed);
+        }
+
+        // Helper Function: ප්‍රතිශතය අනුව පණිවිඩය වෙනස් කිරීම
+        function showFinalMessage(score) {
+            const loveMessage = document.getElementById('loveCalcLoveMessage');
+            let message = "";
+            if (score >= 90) {
+                message = "Wow! A Perfect Match! ❤️‍🔥";
+            } else if (score >= 75) {
+                message = "Great Compatibility! 😍";
+            } else if (score >= 50) {
+                message = "Good together, keep trying! 😊";
+            } else {
+                message = "Challenging, but love can win! 🤔";
+            }
+            loveMessage.textContent = message;
+        }
+    </script>
 
     <!-- Footer -->
     <footer id="footer">
