@@ -1,275 +1,495 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zodiac Love Calculator</title>
-    <style>
-        /* Portfolio එකට ගැලපෙන ලෙස මෙම CSS වෙනස් කරගන්න */
-        :root {
-            --primary-color: #ff4757; /* ලස්සන රතු/රෝස පාටක් */
-            --secondary-color: #2f3542;
-            --bg-color: #f1f2f6;
-        }
 
+    <!-- Primary Meta Tags -->
+    <title>Manjana Aloka - Full-Stack Developer | Portfolio & Projects</title>
+    <meta name="description" content="Full-stack developer specializing in responsive web design, Discord bots, and modern web applications. View my portfolio of HTML, CSS, JavaScript, NodeJS, and PHP projects. Based in Sri Lanka.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, NodeJS, PHP, Discord Bot, Web Developer, Frontend Developer, Portfolio, Blog, Tech Insights">
+    <meta name="author" content="Manjana Aloka">
+
+    <!-- Open Graph Meta Tags / Facebook -->
+    <meta property="og:title" content="Manjana Aloka - Full-Stack Developer | Portfolio & Projects">
+    <meta property="og:description" content="Full-stack developer specializing in responsive web design, Discord bots, and modern web applications. View my portfolio of HTML, CSS, JavaScript, NodeJS, and PHP projects. Based in Sri Lanka.">
+    <meta property="og:image" content="assets/images/portrait.png">
+    <meta property="og:url" content="https://manjanaaloka.github.io/manjana/">
+    <meta property="og:type" content="https://manjanaaloka.github.io/manjana/">
+
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/vj.webp" type="image/x-icon">
+
+    <!-- Google Fonts: Rubik -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&amp;display=swap">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Preload Important resources -->
+    <link rel="preload" href="assets/css/aos.css" as="style">
+    <link rel="preload" href="assets/css/owl.carousel.min.css" as="style">
+    <link rel="preload" href="assets/css/bootstrap.min.css" as="style" />
+    <link rel="preload" href="assets/css/bootstrap-icons.min.css" as="style" />
+    <link rel="preload" href="assets/css/style.css" as="style" />
+
+    <!-- MS-Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "phycesbqlg");
+    </script>
+    <style>
+        /*
+         * මෙම CSS Styles විශේෂයෙන්ම Love Calculator Section එකට අදාළ වේ.
+         * ඔබගේ Portfolio හි මූලික CSS සමඟ ගැටුම් ඇතිවීම අවම කිරීමට
+         * class names වලට "love-calc-" prefix එක භාවිතා කර ඇත.
+         */
+        /* Common Variables (ඔබගේ Portfolio theme එකට ගැලපෙන ලෙස වෙනස් කරන්න) */
+        
+         :root {
+            --love-calc-primary-color: #ff4757;
+            /* රතු/රෝස */
+            --love-calc-secondary-color: #2f3542;
+            /* තද අළු */
+            --love-calc-bg-color: #f8f8f8;
+            /* ලා අළු පසුබිම (section එකට) */
+            --love-calc-card-bg: white;
+            /* Card එකේ සුදු පාට */
+            --love-calc-text-color: #333;
+            --love-calc-border-color: #dfe4ea;
+        }
+        /* --- Global Body & Main Layout (ඔබගේ Portfolio CSS මගින් මෙය handle කරයි) --- */
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            margin: 0;
+            line-height: 1.6;
+            color: var(--love-calc-text-color);
+            background-color: #f1f2f6;
+            /* උදාහරණයක් ලෙස, ඔබගේ පිටුවේ පසුබිම */
+        }
+        /* --- Example Header (ඔබගේ Portfolio හි header එක මෙයට සමාන විය හැක) --- */
+        
+        .portfolio-header {
+            background-color: #34495e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        .portfolio-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
         }
-
-        .calculator-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
+        
+        .portfolio-nav li {
+            margin: 0 15px;
         }
-
-        h2 {
-            color: var(--secondary-color);
-            margin-bottom: 25px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #dfe4ea;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        select:focus {
-            border-color: var(--primary-color);
-        }
-
-        .calc-btn {
-            background-color: var(--primary-color);
+        
+        .portfolio-nav a {
             color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            width: 100%;
+            text-decoration: none;
             font-weight: bold;
         }
-
-        .calc-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        /* --- Love Calculator Section Styles --- */
+        
+        .love-calc-section {
+            background-color: var(--love-calc-bg-color);
+            padding: 60px 20px;
+            /* Section එකේ padding */
+            text-align: center;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.05);
+            /* Section එකට shadow එකක් */
+            display: flex;
+            /* Card එක මැදට ගැනීමට */
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            /* Section එකට අවම උසක් */
         }
-
+        
+        .love-calc-section h2 {
+            font-size: 2.5em;
+            color: var(--love-calc-secondary-color);
+            margin-bottom: 40px;
+        }
+        
+        .love-calc-card {
+            background: var(--love-calc-card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            /* Card එකේ උපරිම පළල */
+            width: 100%;
+            margin-top: -20px;
+            /* H2 එකට උඩින් යාමට */
+        }
+        
+        .love-calc-card h3 {
+            /* Calculator එකේ Title */
+            color: var(--love-calc-primary-color);
+            font-size: 2em;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .love-calc-card h3::before,
+        .love-calc-card h3::after {
+            content: "—";
+            /* Title දෙපසට ඉරි */
+            margin: 0 10px;
+            color: #ccc;
+        }
+        
+        .love-calc-input-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .love-calc-input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--love-calc-secondary-color);
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .love-calc-input-group select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--love-calc-border-color);
+            border-radius: 10px;
+            font-size: 17px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            -webkit-appearance: none;
+            /* Default dropdown arrow අයින් කිරීමට */
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-3.6%2011.8.8%2016.7l126.5%20127.7c3.6%203.6%208.3%205.7%2013.1%205.7s9.5-2.1%2013.1-5.7L287%2086c4.5-4.9%204.7-11.8.9-16.7z%22%2F%3E%3C%2Fsvg%3E');
+            /* Custom dropdown arrow */
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+        }
+        
+        .love-calc-input-group select:focus {
+            border-color: var(--love-calc-primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+        }
+        
+        .love-calc-btn {
+            background-color: var(--love-calc-primary-color);
+            color: white;
+            border: none;
+            padding: 16px 35px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            width: 100%;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+        
+        .love-calc-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+            background-color: #e53e4f;
+            /* තද රතු */
+        }
+        
+        .love-calc-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
+        }
         /* --- Result Display Area (Circular Progress) --- */
-        .result-area {
-            margin-top: 30px;
+        
+        .love-calc-result-area {
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* මුලදී සඟවා තැබීම */
-            opacity: 0; 
-            transform: translateY(20px);
-            transition: 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.6s ease-out;
+            /* මන්දගාමී Transition */
         }
-
-        .result-area.show {
+        
+        .love-calc-result-area.show {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .circular-progress {
+        
+        .love-calc-circular-progress {
             position: relative;
-            height: 150px;
-            width: 150px;
+            height: 180px;
+            /* ප්‍රමාණය තරමක් විශාල කර ඇත */
+            width: 180px;
             border-radius: 50%;
-            background: conic-gradient(var(--primary-color) 0deg, #dfe4ea 0deg);
+            background: conic-gradient(var(--love-calc-primary-color) 0deg, var(--love-calc-border-color) 0deg);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
-        .circular-progress::before {
+        
+        .love-calc-circular-progress::before {
             content: "";
             position: absolute;
-            height: 120px;
-            width: 120px;
+            height: 140px;
+            /* ඇතුලත රවුමේ ප්‍රමාණය */
+            width: 140px;
             border-radius: 50%;
-            background-color: white;
+            background-color: var(--love-calc-card-bg);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
         }
-
-        .progress-value {
+        
+        .love-calc-progress-value {
             position: relative;
-            font-size: 36px;
+            font-size: 4em;
+            /* අකුරු ප්‍රමාණය විශාල කර ඇත */
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--love-calc-primary-color);
+            z-index: 2;
+            /* අනිත් ඒවාට උඩින් පෙන්වීමට */
         }
-
-        .love-message {
-            margin-top: 20px;
-            font-size: 18px;
-            color: var(--secondary-color);
+        
+        .love-calc-message {
+            margin-top: 25px;
+            font-size: 1.4em;
+            /* අකුරු ප්‍රමාණය විශාල කර ඇත */
+            color: var(--love-calc-secondary-color);
             font-weight: 500;
+            line-height: 1.4;
+        }
+        /* --- Example Footer (ඔබගේ Portfolio හි footer එක මෙයට සමාන විය හැක) --- */
+        
+        .portfolio-footer {
+            background-color: #34495e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        /* Responsive adjustments for smaller screens */
+        
+        @media (max-width: 768px) {
+            .love-calc-section {
+                padding: 40px 15px;
+                min-height: auto;
+            }
+            .love-calc-card {
+                padding: 30px;
+                margin-top: 0;
+            }
+            .love-calc-section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .love-calc-card h3 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            .love-calc-input-group label {
+                font-size: 1em;
+            }
+            .love-calc-input-group select {
+                font-size: 15px;
+                padding: 12px;
+            }
+            .love-calc-btn {
+                font-size: 1.1em;
+                padding: 14px 25px;
+            }
+            .love-calc-circular-progress {
+                height: 140px;
+                width: 140px;
+            }
+            .love-calc-circular-progress::before {
+                height: 110px;
+                width: 110px;
+            }
+            .love-calc-progress-value {
+                font-size: 3em;
+            }
+            .love-calc-message {
+                font-size: 1.2em;
+            }
         }
     </style>
+
 </head>
-<body>
 
-<div class="calculator-card">
-    <h2>❤️ Love Calculator ❤️</h2>
-    
-    <div class="input-group">
-        <label for="sign1">ඔබගේ ලග්නය (Your Sign)</label>
-        <select id="sign1">
-            <option value="Aries">මේෂ (Aries)</option>
-            <option value="Taurus">වෘෂභ (Taurus)</option>
-            <option value="Gemini">මිථුන (Gemini)</option>
-            <option value="Cancer">කටක (Cancer)</option>
-            <option value="Leo">සිංහ (Leo)</option>
-            <option value="Virgo">කන්‍යා (Virgo)</option>
-            <option value="Libra">තුලා (Libra)</option>
-            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
-            <option value="Sagittarius">ධනු (Sagittarius)</option>
-            <option value="Capricorn">මකර (Capricorn)</option>
-            <option value="Aquarius">කුම්භ (Aquarius)</option>
-            <option value="Pisces">මීන (Pisces)</option>
-        </select>
-    </div>
+<body data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar">
 
-    <div class="input-group">
-        <label for="sign2">සහකරු/සහකාරියගේ ලග්නය (Partner's Sign)</label>
-        <select id="sign2">
-            <option value="Aries">මේෂ (Aries)</option>
-            <option value="Taurus">වෘෂභ (Taurus)</option>
-            <option value="Gemini">මිථුන (Gemini)</option>
-            <option value="Cancer">කටක (Cancer)</option>
-            <option value="Leo">සිංහ (Leo)</option>
-            <option value="Virgo">කන්‍යා (Virgo)</option>
-            <option value="Libra">තුලා (Libra)</option>
-            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
-            <option value="Sagittarius">ධනු (Sagittarius)</option>
-            <option value="Capricorn">මකර (Capricorn)</option>
-            <option value="Aquarius">කුම්භ (Aquarius)</option>
-            <option value="Pisces">මීන (Pisces)</option>
-        </select>
-    </div>
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-    <button class="calc-btn" onclick="calculateLove()">Calculate Love %</button>
+    <!-- Header -->
+    <header id="header">
+        <nav id="navbar" class="navbar navbar-expand-md">
+            <div class="container">
+                <a href="/" class="navbar-brand logo">
+                    <span>
+                        << /span>
+                            <span class="logo-name">Manjana</span>
+                    <span>/></span>
+                </a>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarMenu">
+                    <div class="offcanvas-header">
+                        <a href="/" class="offcanvas-title navbar-brand logo" id="offcanvasNavbarMenu" data-aos="fade-down" data-aos-delay="600">
+                            <span>
+                                << /span>
+                                    <span class="logo-name">Manjana Aloka</span>
+                            <span>/></span>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-bs-dismiss="offcanvas" aria-label="Close Navigation Menu"><i class="bi bi-x toggle-icon"></i></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav nav-underline justify-content-end flex-grow-1">
+                            <li class="nav-item" data-aos="fade-down" data-aos-delay="500" data-bs-dismiss="offcanvas">
+                                <a href="#hero" class="nav-link active" aria-current="page">Home</a></li>
+                            <li class="nav-item" data-aos="fade-down" data-aos-delay="600" data-bs-dismiss="offcanvas">
+                                <a href="#about" class="nav-link">About</a></li>
+                            <li class="nav-item" data-aos="fade-down" data-aos-delay="700" data-bs-dismiss="offcanvas">
+                                <a href="#skills" class="nav-link">Skills</a></li>
+                            <li class="nav-item" data-aos="fade-down" data-aos-delay="800" data-bs-dismiss="offcanvas">
+                                <a href="#projects" class="nav-link">Projects</a></li>
+                            <li class="nav-item" data-aos="fade-down" data-aos-delay="900" data-bs-dismiss="offcanvas">
+                                <a href="#blogs" class="nav-link">Blogs</a></li>
+                            <li class="nav-item" data-aos="fade-down" data-aos-delay="1000" data-bs-dismiss="offcanvas">
+                                <a href="#contact" class="nav-link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn border-0" id="switchTheme" data-aos="fade-down" data-aos-delay="600"><i
+                        class="bi bi-brightness-high-fill"></i></button>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle Navigation Menu" data-aos="fade-down" data-aos-delay="600"><i
+                        class="bi bi-list toggle-icon"></i></button>
+            </div>
+        </nav>
+    </header>
 
-    <div class="result-area" id="resultArea">
-        <div class="circular-progress" id="circularProgress">
-            <span class="progress-value" id="progressValue">0%</span>
+    <!-- feature -->
+    <section id="feature">
+        <div class="container">
+            <h6 class="text-center"><span class="btn btn-sm theme-button theme-text">What I've done?</span></h6>
+            <h2 class="section-heading text-center">Projects</h2>
+            <div class="row justify-content-center mt-4 gy-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="love-calc-card">
+                    <h3>❤️ Zodiac Love Compatibility ❤️</h3>
+
+                    <div class="love-calc-input-group">
+                        <label for="loveCalcSign1">ඔබගේ ලග්නය (Your Sign)</label>
+                        <select id="loveCalcSign1">
+                            <option value="Aries">මේෂ (Aries)</option>
+                            <option value="Taurus">වෘෂභ (Taurus)</option>
+                            <option value="Gemini">මිථුන (Gemini)</option>
+                            <option value="Cancer">කටක (Cancer)</option>
+                            <option value="Leo">සිංහ (Leo)</option>
+                            <option value="Virgo">කන්‍යා (Virgo)</option>
+                            <option value="Libra">තුලා (Libra)</option>
+                            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
+                            <option value="Sagittarius">ධනු (Sagittarius)</option>
+                            <option value="Capricorn">මකර (Capricorn)</option>
+                            <option value="Aquarius">කුම්භ (Aquarius)</option>
+                            <option value="Pisces">මීන (Pisces)</option>
+                        </select>
+                    </div>
+
+                    <div class="love-calc-input-group">
+                        <label for="loveCalcSign2">සහකරු/සහකාරියගේ ලග්නය (Partner's Sign)</label>
+                        <select id="loveCalcSign2">
+                            <option value="Aries">මේෂ (Aries)</option>
+                            <option value="Taurus">වෘෂභ (Taurus)</option>
+                            <option value="Gemini">මිථුන (Gemini)</option>
+                            <option value="Cancer">කටක (Cancer)</option>
+                            <option value="Leo">සිංහ (Leo)</option>
+                            <option value="Virgo">කන්‍යා (Virgo)</option>
+                            <option value="Libra">තුලා (Libra)</option>
+                            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
+                            <option value="Sagittarius">ධනු (Sagittarius)</option>
+                            <option value="Capricorn">මකර (Capricorn)</option>
+                            <option value="Aquarius">කුම්භ (Aquarius)</option>
+                            <option value="Pisces">මීන (Pisces)</option>
+                        </select>
+                    </div>
+
+                    <button class="love-calc-btn" onclick="calculateLove()">Calculate Love %</button>
+
+                    <div class="love-calc-result-area" id="loveCalcResultArea">
+                        <div class="love-calc-circular-progress" id="loveCalcCircularProgress">
+                            <span class="love-calc-progress-value" id="loveCalcProgressValue">0%</span>
+                        </div>
+                        <p class="love-calc-message" id="loveCalcLoveMessage">Calculating...</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="love-message" id="loveMessage">Calculating...</p>
-    </div>
-</div>
+    </section>
 
-<script>
-    // 1. Helper Function: නමේ අකුරුවලට අගයක් දීම (A=1, B=2, ... Z=26)
-    function getWordValue(word) {
-        word = word.toUpperCase();
-        let sum = 0;
-        for (let i = 0; i < word.length; i++) {
-            // charCodeAt(i) මගින් ASCII අගය ගනී. 'A' = 65.
-            // එබැවින් 65න් 64ක් අඩු කළ විට A=1 ලැබේ.
-            sum += word.charCodeAt(i) - 64;
-        }
-        return sum;
-    }
 
-    // 2. Main Function: ගණනය කිරීම සහ ප්‍රතිඵලය පෙන්වීම
-    function calculateLove() {
-        const sign1Name = document.getElementById('sign1').value;
-        const sign2Name = document.getElementById('sign2').value;
-        
-        const resultArea = document.getElementById('resultArea');
-        const circularProgress = document.getElementById('circularProgress');
-        const progressValue = document.getElementById('progressValue');
-        const loveMessage = document.getElementById('loveMessage');
 
-        // ප්‍රතිඵල පෙන්නුම් කරන කොටස මතු කිරීම
-        resultArea.classList.add('show');
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <p class="text-center copyright-text">Made with <span class="heart-icon"><i class="bi bi-hearts"></i></span> by <span>Manjana Aloka</span>.</p>
+        </div>
+    </footer>
 
-        // --- ගණිතමය ගණනය කිරීම (The Calculation Logic) ---
-        
-        // අකුරුවල එකතුව ලබා ගැනීම
-        let value1 = getWordValue(sign1Name);
-        let value2 = getWordValue(sign2Name);
-        
-        let totalSum = value1 + value2;
+    <button class="btn" id="backToTopButton" onclick="scrollToTop()" style="display: none;">
+        <span aria-label="Back to top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+            </svg>
+        </span>
+    </button>
 
-        // ප්‍රතිශතය සෑදීමේ සූත්‍රය (Percentage Formula)
-        // අපි මේ එකතුව 100න් බෙදා ඉතිරිය ගනිමු (Modulo operator %).
-        // මෙය සරල නමුත් අකුරු මත පදනම් වූ ක්‍රමයකි.
-        // 0% නොඒමට කුඩා වෙනස්කමක් කරමු.
-        let percentage = (totalSum * 7) % 101; 
-
-        // අගය ඉතාම අඩු නම් එය තරමක් වැඩි කරමු (Fun factor එක සඳහා)
-        if (percentage < 30) {
-             percentage += 35;
-        }
-        // 100ට වඩා වැඩි නොවන බව තහවුරු කරමු
-        if (percentage > 100) percentage = 100;
-
-        // --- ප්‍රතිඵලය ලස්සනට පෙන්වීම (Animation) ---
-        
-        let startValue = 0;
-        let speed = 20; // Animation වේගය
-
-        let progressTimer = setInterval(() => {
-            startValue++;
-            
-            // අංකය යාවත්කාලීන කිරීම
-            progressValue.textContent = `${startValue}%`;
-            
-            // රවුමේ පාට වෙනස් කිරීම (CSS conic-gradient)
-            circularProgress.style.background = `conic-gradient(#ff4757 ${startValue * 3.6}deg, #dfe4ea 0deg)`;
-
-            if (startValue == percentage) {
-                clearInterval(progressTimer);
-                // අවසාන පණිවිඩය පෙන්වීම
-                showFinalMessage(percentage);
-            }
-        }, speed);
-    }
-
-    // Helper Function: ප්‍රතිශතය අනුව පණිවිඩය වෙනස් කිරීම
-    function showFinalMessage(score) {
-        const loveMessage = document.getElementById('loveMessage');
-        let message = "";
-        if (score >= 90) {
-            message = "Wow! A Perfect Match! ❤️‍🔥";
-        } else if (score >= 75) {
-            message = "Great Compatibility! 😍";
-        } else if (score >= 50) {
-            message = "Good together, keep trying! 😊";
-        } else {
-            message = "Challenging, but love can win! 🤔";
-        }
-        loveMessage.textContent = message;
-    }
-</script>
+    <!-- JavaScript -->
+    <script src="assets/js/aos.js" defer></script>
+    <script src="assets/js/jquery-3.7.1.min.js" defer></script>
+    <script src="assets/js/owl.carousel.min.js" defer></script>
+    <script src="assets/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
 
 </body>
-</html>
+
+</html
