@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Love Calculator</title>
+    <style>
+        /* Portfolio එකට ගැලපෙන ලෙස මෙම CSS වෙනස් කරගන්න */
+        :root {
+            --primary-color: #ff4757; /* ලස්සන රතු/රෝස පාටක් */
+            --secondary-color: #2f3542;
+            --bg-color: #f1f2f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dfe4ea;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .calc-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .calc-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+
+        /* --- Result Display Area (Circular Progress) --- */
+        .result-area {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* මුලදී සඟවා තැබීම */
+            opacity: 0; 
+            transform: translateY(20px);
+            transition: 0.5s ease-in-out;
+        }
+
+        .result-area.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .circular-progress {
+            position: relative;
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary-color) 0deg, #dfe4ea 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .circular-progress::before {
+            content: "";
+            position: absolute;
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .progress-value {
+            position: relative;
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .love-message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-card">
+    <h2>❤️ Love Calculator ❤️</h2>
+    
+    <div class="input-group">
+        <label for="sign1">ඔබගේ ලග්නය (Your Sign)</label>
+        <select id="sign1">
+            <option value="Aries">මේෂ (Aries)</option>
+            <option value="Taurus">වෘෂභ (Taurus)</option>
+            <option value="Gemini">මිථුන (Gemini)</option>
+            <option value="Cancer">කටක (Cancer)</option>
+            <option value="Leo">සිංහ (Leo)</option>
+            <option value="Virgo">කන්‍යා (Virgo)</option>
+            <option value="Libra">තුලා (Libra)</option>
+            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
+            <option value="Sagittarius">ධනු (Sagittarius)</option>
+            <option value="Capricorn">මකර (Capricorn)</option>
+            <option value="Aquarius">කුම්භ (Aquarius)</option>
+            <option value="Pisces">මීන (Pisces)</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="sign2">සහකරු/සහකාරියගේ ලග්නය (Partner's Sign)</label>
+        <select id="sign2">
+            <option value="Aries">මේෂ (Aries)</option>
+            <option value="Taurus">වෘෂභ (Taurus)</option>
+            <option value="Gemini">මිථුන (Gemini)</option>
+            <option value="Cancer">කටක (Cancer)</option>
+            <option value="Leo">සිංහ (Leo)</option>
+            <option value="Virgo">කන්‍යා (Virgo)</option>
+            <option value="Libra">තුලා (Libra)</option>
+            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
+            <option value="Sagittarius">ධනු (Sagittarius)</option>
+            <option value="Capricorn">මකර (Capricorn)</option>
+            <option value="Aquarius">කුම්භ (Aquarius)</option>
+            <option value="Pisces">මීන (Pisces)</option>
+        </select>
+    </div>
+
+    <button class="calc-btn" onclick="calculateLove()">Calculate Love %</button>
+
+    <div class="result-area" id="resultArea">
+        <div class="circular-progress" id="circularProgress">
+            <span class="progress-value" id="progressValue">0%</span>
+        </div>
+        <p class="love-message" id="loveMessage">Calculating...</p>
+    </div>
+</div>
+
+<script>
+    // 1. Helper Function: නමේ අකුරුවලට අගයක් දීම (A=1, B=2, ... Z=26)
+    function getWordValue(word) {
+        word = word.toUpperCase();
+        let sum = 0;
+        for (let i = 0; i < word.length; i++) {
+            // charCodeAt(i) මගින් ASCII අගය ගනී. 'A' = 65.
+            // එබැවින් 65න් 64ක් අඩු කළ විට A=1 ලැබේ.
+            sum += word.charCodeAt(i) - 64;
+        }
+        return sum;
+    }
+
+    // 2. Main Function: ගණනය කිරීම සහ ප්‍රතිඵලය පෙන්වීම
+    function calculateLove() {
+        const sign1Name = document.getElementById('sign1').value;
+        const sign2Name = document.getElementById('sign2').value;
+        
+        const resultArea = document.getElementById('resultArea');
+        const circularProgress = document.getElementById('circularProgress');
+        const progressValue = document.getElementById('progressValue');
+        const loveMessage = document.getElementById('loveMessage');
+
+        // ප්‍රතිඵල පෙන්නුම් කරන කොටස මතු කිරීම
+        resultArea.classList.add('show');
+
+        // --- ගණිතමය ගණනය කිරීම (The Calculation Logic) ---
+        
+        // අකුරුවල එකතුව ලබා ගැනීම
+        let value1 = getWordValue(sign1Name);
+        let value2 = getWordValue(sign2Name);
+        
+        let totalSum = value1 + value2;
+
+        // ප්‍රතිශතය සෑදීමේ සූත්‍රය (Percentage Formula)
+        // අපි මේ එකතුව 100න් බෙදා ඉතිරිය ගනිමු (Modulo operator %).
+        // මෙය සරල නමුත් අකුරු මත පදනම් වූ ක්‍රමයකි.
+        // 0% නොඒමට කුඩා වෙනස්කමක් කරමු.
+        let percentage = (totalSum * 7) % 101; 
+
+        // අගය ඉතාම අඩු නම් එය තරමක් වැඩි කරමු (Fun factor එක සඳහා)
+        if (percentage < 30) {
+             percentage += 35;
+        }
+        // 100ට වඩා වැඩි නොවන බව තහවුරු කරමු
+        if (percentage > 100) percentage = 100;
+
+        // --- ප්‍රතිඵලය ලස්සනට පෙන්වීම (Animation) ---
+        
+        let startValue = 0;
+        let speed = 20; // Animation වේගය
+
+        let progressTimer = setInterval(() => {
+            startValue++;
+            
+            // අංකය යාවත්කාලීන කිරීම
+            progressValue.textContent = `${startValue}%`;
+            
+            // රවුමේ පාට වෙනස් කිරීම (CSS conic-gradient)
+            circularProgress.style.background = `conic-gradient(#ff4757 ${startValue * 3.6}deg, #dfe4ea 0deg)`;
+
+            if (startValue == percentage) {
+                clearInterval(progressTimer);
+                // අවසාන පණිවිඩය පෙන්වීම
+                showFinalMessage(percentage);
+            }
+        }, speed);
+    }
+
+    // Helper Function: ප්‍රතිශතය අනුව පණිවිඩය වෙනස් කිරීම
+    function showFinalMessage(score) {
+        const loveMessage = document.getElementById('loveMessage');
+        let message = "";
+        if (score >= 90) {
+            message = "Wow! A Perfect Match! ❤️‍🔥";
+        } else if (score >= 75) {
+            message = "Great Compatibility! 😍";
+        } else if (score >= 50) {
+            message = "Good together, keep trying! 😊";
+        } else {
+            message = "Challenging, but love can win! 🤔";
+        }
+        loveMessage.textContent = message;
+    }
+</script>
+
+</body>
+</html>
