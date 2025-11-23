@@ -368,7 +368,8 @@
             <div class="container">
                 <a href="/" class="navbar-brand logo">
                     <span>
-                        < <span class="logo-name">Manjana</span> /></span>
+                        < <span class="logo-name">Manjana
+                    </span> /></span>
                 </a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarMenu">
                     <div class="offcanvas-header">
@@ -414,7 +415,8 @@
     <!-- feature -->
     <section id="feature">
         <div class="container">
-            <h6 class="text-center"><span class="btn btn-sm theme-button theme-text" style="font-size: 20px;">Calculate Love</span></h6>
+            <h6 class="text-center"><span class="btn btn-sm theme-button theme-text" style="font-size: 20px;">Calculate
+                    Love</span></h6>
             <h2 class="section-heading text-center">Projects</h2>
             <div class="row justify-content-center mt-4 gy-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="love-calc-card">
@@ -473,6 +475,7 @@
     <script src="assets/js/ajax.js"></script>
     <script>
         // 1. Helper Function: නමේ අකුරුවලට අගයක් දීම (A=1, B=2, ... Z=26)
+        // (මෙම කොටසේ වෙනසක් නැත)
         function getWordValue(word) {
             word = word.toUpperCase();
             let sum = 0;
@@ -482,36 +485,63 @@
             return sum;
         }
 
+        // --- NEW FUNCTION: Device එක අනුව අමතර අගයක් ලබා ගැනීම ---
+        function getDeviceBonus() {
+            const width = window.innerWidth;
+            // ටච් ස්ක්‍රීන් එකක්දැයි බැලීම (බොහෝ ෆෝන් සහ ටැබ්ලට් සඳහා)
+            const isTouch = (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+
+            if (width < 768 && isTouch) {
+                // Mobile Phones: කුඩා තිරය සහ ටච් පහසුකම ඇත.
+                console.log("Device detected: Mobile Phone (+7%)");
+                return 7;
+            } else if (width >= 768 && isTouch) {
+                // Tablets: විශාල තිරය සහ ටච් පහසුකම ඇත.
+                console.log("Device detected: Tablet/Touch Laptop (+4%)");
+                return 4;
+            } else {
+                // Desktops/Laptops: ටච් නැති විශාල තිර.
+                console.log("Device detected: Desktop (No bonus)");
+                return 0;
+            }
+        }
+
         // 2. Main Function: ගණනය කිරීම සහ ප්‍රතිඵලය පෙන්වීම
         function calculateLove() {
-            // ID names වෙනස් කර ඇති නිසා මෙහිදීත් ඒවා නිවැරදි කරන්න
             const sign1Name = document.getElementById('loveCalcSign1').value;
             const sign2Name = document.getElementById('loveCalcSign2').value;
 
             const resultArea = document.getElementById('loveCalcResultArea');
             const circularProgress = document.getElementById('loveCalcCircularProgress');
             const progressValue = document.getElementById('loveCalcProgressValue');
-            const loveMessage = document.getElementById('loveCalcLoveMessage');
+            // පණිවිඩය පෙන්වීමට පෙර එය reset කිරීම
+            document.getElementById('loveCalcLoveMessage').textContent = "Calculating...";
 
-            // ප්‍රතිඵල පෙන්නුම් කරන කොටස මතු කිරීම
             resultArea.classList.add('show');
 
-            // --- ගණිතමය ගණනය කිරීම (The Calculation Logic) ---
+            // --- ගණිතමය ගණනය කිරීම (Calculation Logic) ---
 
             let value1 = getWordValue(sign1Name);
             let value2 = getWordValue(sign2Name);
-
             let totalSum = value1 + value2;
 
+            // මූලික ප්‍රතිශතය (Base Percentage)
             let percentage = (totalSum * 7) % 101;
 
-            if (percentage < 30) {
-                percentage += 35;
+            // --- NEW: Device Bonus එක එකතු කිරීම ---
+            let deviceBonus = getDeviceBonus();
+            percentage += deviceBonus;
+
+            // Fun factor: අගය ඉතාම අඩු නම් එය තරමක් වැඩි කරමු
+            if (percentage < 35) {
+                percentage += 30;
             }
+
+            // 100ට වඩා වැඩි නොවන බව තහවුරු කරමු (Bonus එක නිසා 100 පැනිය හැක)
             if (percentage > 100) percentage = 100;
 
             // --- ප්‍රතිඵලය ලස්සනට පෙන්වීම (Animation) ---
-
+            // (මෙම කොටසේ වෙනසක් නැත)
             let startValue = 0;
             let speed = 20;
 
@@ -537,6 +567,7 @@
         }
 
         // Helper Function: ප්‍රතිශතය අනුව පණිවිඩය වෙනස් කිරීම
+        // (මෙම කොටසේ වෙනසක් නැත)
         function showFinalMessage(score) {
             const loveMessage = document.getElementById('loveCalcLoveMessage');
             let message = "";
