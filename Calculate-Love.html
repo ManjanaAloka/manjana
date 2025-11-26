@@ -1,613 +1,389 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary Meta Tags -->
-    <title>❤️ Zodiac Love Compatibility ❤️</title>
-    <meta name="description" content="❤️ Zodiac Love Compatibility ❤️ - Discover your love compatibility based on zodiac signs! Select your sign and your partner's sign to calculate your love percentage. Perfect for fun and insights into your relationship dynamics. Try it now!">
-    <meta name="keywords" content="Love Calculator, Zodiac Compatibility, Astrology Love Match, Relationship Insights, Fun Love Test, Zodiac Signs, Love Percentage, Compatibility Test, Astrology Fun, Love Match Calculator">
-    <meta name="author" content="Manjana Aloka">
-
-    <!-- Open Graph Meta Tags / Facebook -->
-    <meta property="og:title" content="❤️ Zodiac Love Compatibility ❤️">
-    <meta property="og:description" content="❤️ Zodiac Love Compatibility ❤️ - Discover your love compatibility based on zodiac signs! Select your sign and your partner's sign to calculate your love percentage. Perfect for fun and insights into your relationship dynamics. Try it now!">
-    <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/5519ab2ee4b02a4410b6a7c6/1573572780880-TNGN7R4EX4N141SBXP50/beautiful-hands-heart-5390.jpg?format=2500w">
-    <meta property="og:url" content="https://manjanaaloka.github.io/manjana/Calculate-Love.html">
-    <meta property="og:type" content="https://manjanaaloka.github.io/manjana/Calculate-Love.html">
-
-
-
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/vj.webp" type="image/x-icon">
-
-    <!-- Google Fonts: Rubik -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&amp;display=swap">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/aos.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Preload Important resources -->
-    <link rel="preload" href="assets/css/aos.css" as="style">
-    <link rel="preload" href="assets/css/owl.carousel.min.css" as="style">
-    <link rel="preload" href="assets/css/bootstrap.min.css" as="style" />
-    <link rel="preload" href="assets/css/bootstrap-icons.min.css" as="style" />
-    <link rel="preload" href="assets/css/style.css" as="style" />
-
-    <!-- MS-Clarity Analytics -->
-    <script type="text/javascript">
-        (function(c, l, a, r, i, t, y) {
-            c[a] = c[a] || function() {
-                (c[a].q = c[a].q || []).push(arguments)
-            };
-            t = l.createElement(r);
-            t.async = 1;
-            t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0];
-            y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "phycesbqlg");
-    </script>
+    <title>Campus Mate Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /*
-         * මෙම CSS Styles විශේෂයෙන්ම Love Calculator Section එකට අදාළ වේ.
-         * ඔබගේ Portfolio හි මූලික CSS සමඟ ගැටුම් ඇතිවීම අවම කිරීමට
-         * class names වලට "love-calc-" prefix එක භාවිතා කර ඇත.
-         */
-        /* Common Variables (ඔබගේ Portfolio theme එකට ගැලපෙන ලෙස වෙනස් කරන්න) */
-        
          :root {
-            --love-calc-primary-color: #ff4757;
-            /* රතු/රෝස */
-            --love-calc-secondary-color: #2f3542;
-            /* තද අළු */
-            --love-calc-bg-color: #f8f8f8;
-            /* ලා අළු පසුබිම (section එකට) */
-            --love-calc-card-bg: white;
-            /* Card එකේ සුදු පාට */
-            --love-calc-text-color: #333;
-            --love-calc-border-color: #dfe4ea;
+            --mf-primary: #1877f2;
+            --mf-secondary: #42b72a;
+            --mf-bg-section: #f0f2f5;
+            --mf-card-bg: #ffffff;
+            --mf-text-dark: #1c1e21;
+            --mf-text-gray: #65676b;
+            --mf-border-radius: 12px;
         }
-        /* --- Global Body & Main Layout (ඔබගේ Portfolio CSS මගින් මෙය handle කරයි) --- */
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            line-height: 1.6;
-            color: var(--love-calc-text-color);
-            background-color: #f1f2f6;
-            /* උදාහරණයක් ලෙස, ඔබගේ පිටුවේ පසුබිම */
-        }
-        /* --- Example Header (ඔබගේ Portfolio හි header එක මෙයට සමාන විය හැක) --- */
-        
-        .portfolio-header {
-            background-color: #34495e;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
         }
         
-        .portfolio-header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        
-        .portfolio-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0;
+        .mf-section {
+            background-color: var(--mf-bg-section);
+            padding: 80px 20px;
             display: flex;
-            justify-content: center;
-        }
-        
-        .portfolio-nav li {
-            margin: 0 15px;
-        }
-        
-        .portfolio-nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        /* --- Love Calculator Section Styles --- */
-        
-        .love-calc-section {
-            background-color: var(--love-calc-bg-color);
-            padding: 60px 20px;
-            /* Section එකේ padding */
-            text-align: center;
-            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.05);
-            /* Section එකට shadow එකක් */
-            display: flex;
-            /* Card එක මැදට ගැනීමට */
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 70vh;
-            /* Section එකට අවම උසක් */
+            justify-content: center;
+            min-height: 600px;
         }
         
-        .love-calc-section h2 {
-            font-size: 2.5em;
-            color: var(--love-calc-secondary-color);
-            margin-bottom: 40px;
-        }
-        
-        .love-calc-card {
-            background: var(--love-calc-card-bg);
+        .mf-container-card {
+            background: var(--mf-card-bg);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 500px;
-            /* Card එකේ උපරිම පළල */
+            border-radius: var(--mf-border-radius);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
             width: 100%;
-            margin-top: -20px;
-            /* H2 එකට උඩින් යාමට */
+            max-width: 450px;
+            text-align: center;
+            position: relative;
         }
         
-        .love-calc-card h3 {
-            /* Calculator එකේ Title */
-            color: var(--love-calc-primary-color);
+        .mf-title {
+            color: var(--mf-primary);
             font-size: 2em;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .love-calc-card h3::before,
-        .love-calc-card h3::after {
-            content: "—";
-            /* Title දෙපසට ඉරි */
-            margin: 0 10px;
-            color: #ccc;
-        }
-        
-        .love-calc-input-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-        
-        .love-calc-input-group label {
-            display: block;
             margin-bottom: 10px;
-            color: var(--love-calc-secondary-color);
-            font-weight: 600;
+            font-weight: 700;
+        }
+        
+        .mf-subtitle {
+            color: var(--mf-text-gray);
+            margin-bottom: 30px;
             font-size: 1.1em;
         }
         
-        .love-calc-input-group select {
+        .mf-input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .mf-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--mf-text-dark);
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        .mf-label i {
+            color: var(--mf-primary);
+            margin-right: 8px;
+        }
+        
+        .mf-input-wrapper {
+            position: relative;
+        }
+        
+        .mf-input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--mf-text-gray);
+        }
+        
+        .mf-input,
+        .mf-select {
             width: 100%;
-            padding: 14px;
-            border: 2px solid var(--love-calc-border-color);
-            border-radius: 10px;
-            font-size: 17px;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
             outline: none;
-            transition: border-color 0.3s ease;
-            -webkit-appearance: none;
-            /* Default dropdown arrow අයින් කිරීමට */
-            -moz-appearance: none;
             appearance: none;
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-3.6%2011.8.8%2016.7l126.5%20127.7c3.6%203.6%208.3%205.7%2013.1%205.7s9.5-2.1%2013.1-5.7L287%2086c4.5-4.9%204.7-11.8.9-16.7z%22%2F%3E%3C%2Fsvg%3E');
-            /* Custom dropdown arrow */
+        }
+        
+        .mf-select {
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='292.4'%20height='292.4'%3E%3Cpath%20fill='%2365676b'%20d='M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-3.6%2011.8.8%2016.7l126.5%20127.7c3.6%203.6%208.3%205.7%2013.1%205.7s9.5-2.1%2013.1-5.7L287%2086c4.5-4.9%204.7-11.8.9-16.7z'%2F%3E%3C%2Fsvg%3E");
             background-repeat: no-repeat;
             background-position: right 15px center;
             background-size: 12px;
         }
         
-        .love-calc-input-group select:focus {
-            border-color: var(--love-calc-primary-color);
-            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+        .mf-input:focus,
+        .mf-select:focus {
+            border-color: var(--mf-primary);
+            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2);
         }
         
-        .love-calc-btn {
-            background-color: var(--love-calc-primary-color);
+        .mf-find-btn {
+            background-color: var(--mf-primary);
             color: white;
             border: none;
-            padding: 16px 35px;
-            font-size: 1.2em;
-            border-radius: 50px;
+            padding: 14px 20px;
+            font-size: 18px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
             width: 100%;
             font-weight: bold;
-            letter-spacing: 0.5px;
             margin-top: 10px;
+            transition: background 0.3s, transform 0.2s;
         }
         
-        .love-calc-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
-            background-color: #e53e4f;
-            /* තද රතු */
-        }
-        
-        .love-calc-btn:active {
+        .mf-find-btn:hover {
+            background-color: #166fe5;
             transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
         }
-        /* --- Result Display Area (Circular Progress) --- */
         
-        .love-calc-result-area {
-            margin-top: 40px;
+        .mf-disclaimer {
+            margin-top: 25px;
+            font-size: 0.8em;
+            color: var(--mf-text-gray);
+            background: #f7f8fa;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        
+        .mf-loading-area {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
+        
+        .mf-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-left-color: var(--mf-primary);
+            animation: mf-spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes mf-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .mf-result-area {
+            display: none;
+            animation: mf-fade-in-up 0.5s ease-out;
+        }
+        
+        .mf-fb-card {
+            border: 1px solid #ddd;
+            border-radius: var(--mf-border-radius);
+            overflow: hidden;
+            text-align: left;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .mf-fb-cover {
+            height: 120px;
+            background-color: #dfe3ee;
+            background-image: url('https://picsum.photos/800/200?blur=2');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .mf-fb-info {
+            padding: 15px;
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.6s ease-out;
-            /* මන්දගාමී Transition */
+            margin-top: -60px;
         }
         
-        .love-calc-result-area.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .love-calc-circular-progress {
-            position: relative;
-            height: 180px;
-            /* ප්‍රමාණය තරමක් විශාල කර ඇත */
-            width: 180px;
+        .mf-fb-avatar {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: conic-gradient(var(--love-calc-primary-color) 0deg, var(--love-calc-border-color) 0deg);
+            border: 4px solid white;
+            background-color: #eee;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mf-fb-details {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .mf-fb-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--mf-text-dark);
+            margin: 0;
+        }
+        
+        .mf-fb-meta {
+            font-size: 15px;
+            color: var(--mf-text-gray);
+            margin-top: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            gap: 5px;
         }
         
-        .love-calc-circular-progress::before {
-            content: "";
-            position: absolute;
-            height: 140px;
-            /* ඇතුලත රවුමේ ප්‍රමාණය */
-            width: 140px;
-            border-radius: 50%;
-            background-color: var(--love-calc-card-bg);
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .love-calc-progress-value {
-            position: relative;
-            font-size: 4em;
-            /* අකුරු ප්‍රමාණය විශාල කර ඇත */
-            font-weight: bold;
-            color: var(--love-calc-primary-color);
-            z-index: 2;
-            /* අනිත් ඒවාට උඩින් පෙන්වීමට */
-        }
-        
-        .love-calc-message {
+        .mf-fb-actions {
             margin-top: 25px;
-            font-size: 1.4em;
-            /* අකුරු ප්‍රමාණය විශාල කර ඇත */
-            color: var(--love-calc-secondary-color);
-            font-weight: 500;
-            line-height: 1.4;
+            display: flex;
+            gap: 10px;
+            width: 100%;
         }
-        /* --- Example Footer (ඔබගේ Portfolio හි footer එක මෙයට සමාන විය හැක) --- */
         
-        .portfolio-footer {
-            background-color: #34495e;
-            color: white;
-            padding: 20px 0;
+        .mf-fb-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
             text-align: center;
-            margin-top: 50px;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
         }
         
-        .portfolio-footer p {
-            margin: 0;
-            font-size: 0.9em;
+        .mf-btn-add {
+            background-color: var(--mf-primary);
+            color: white;
         }
-        /* Responsive adjustments for smaller screens */
         
-        @media (max-width: 768px) {
-            .love-calc-section {
-                padding: 40px 15px;
-                min-height: auto;
+        .mf-btn-add:hover {
+            background-color: #155db5;
+        }
+        
+        .mf-btn-msg {
+            background-color: #e4e6eb;
+            color: var(--mf-text-dark);
+        }
+        
+        .mf-btn-msg:hover {
+            background-color: #d8dadf;
+        }
+        
+        .mf-try-again-btn {
+            background-color: transparent;
+            color: var(--mf-text-gray);
+            border: 2px solid #e4e6eb;
+            margin-top: 25px;
+            font-weight: 600;
+        }
+        
+        .mf-try-again-btn:hover {
+            background-color: #f0f2f5;
+            border-color: #d8dadf;
+            color: var(--mf-text-dark);
+        }
+        
+        @keyframes mf-fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            .love-calc-card {
-                padding: 30px;
-                margin-top: 0;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            .love-calc-section h2 {
-                font-size: 2em;
-                margin-bottom: 30px;
+        }
+        
+        @media(max-width:480px) {
+            .mf-container-card {
+                padding: 25px;
             }
-            .love-calc-card h3 {
-                font-size: 1.8em;
-                margin-bottom: 25px;
+            .mf-title {
+                font-size: 1.6em;
             }
-            .love-calc-input-group label {
-                font-size: 1em;
+            .mf-fb-cover {
+                height: 100px;
             }
-            .love-calc-input-group select {
-                font-size: 15px;
-                padding: 12px;
-            }
-            .love-calc-btn {
-                font-size: 1.1em;
-                padding: 14px 25px;
-            }
-            .love-calc-circular-progress {
-                height: 140px;
-                width: 140px;
-            }
-            .love-calc-circular-progress::before {
-                height: 110px;
-                width: 110px;
-            }
-            .love-calc-progress-value {
-                font-size: 3em;
-            }
-            .love-calc-message {
-                font-size: 1.2em;
+            .mf-fb-avatar {
+                width: 100px;
+                height: 100px;
+                margin-top: -50px;
             }
         }
     </style>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
-<body data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar">
+<body>
 
-    <!-- Preloader -->
-    <div id="preloader"></div>
+    <section class="mf-section">
+        <div class="mf-container-card" id="mfCard">
 
-    <!-- Header -->
-    <header id="header">
-        <nav id="navbar" class="navbar navbar-expand-md">
-            <div class="container">
-                <a href="/" class="navbar-brand logo">
-                    <span>
-                        < <span class="logo-name">Manjana
-                    </span> /></span>
-                </a>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarMenu">
-                    <div class="offcanvas-header">
-                        <a href="/" class="offcanvas-title navbar-brand logo" id="offcanvasNavbarMenu" data-aos="fade-down" data-aos-delay="600">
-                            <span>
-                                << /span>
-                                    <span class="logo-name">Manjana Aloka</span>
-                            <span>/></span>
-                        </a>
-                        <button type="button" class="navbar-toggler" data-bs-dismiss="offcanvas" aria-label="Close Navigation Menu"><i class="bi bi-x toggle-icon"></i></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav nav-underline justify-content-end flex-grow-1">
-                            <li class="nav-item" data-aos="fade-down" data-aos-delay="500" data-bs-dismiss="offcanvas">
-                                <a href="#hero" class="nav-link active" aria-current="page">Home</a>
-                            </li>
-                            <li class="nav-item" data-aos="fade-down" data-aos-delay="600" data-bs-dismiss="offcanvas">
-                                <a href="#about" class="nav-link">About</a>
-                            </li>
-                            <li class="nav-item" data-aos="fade-down" data-aos-delay="700" data-bs-dismiss="offcanvas">
-                                <a href="#skills" class="nav-link">Skills</a>
-                            </li>
-                            <li class="nav-item" data-aos="fade-down" data-aos-delay="800" data-bs-dismiss="offcanvas">
-                                <a href="#projects" class="nav-link">Projects</a>
-                            </li>
-                            <li class="nav-item" data-aos="fade-down" data-aos-delay="900" data-bs-dismiss="offcanvas">
-                                <a href="#blogs" class="nav-link">Blogs</a>
-                            </li>
-                            <li class="nav-item" data-aos="fade-down" data-aos-delay="1000" data-bs-dismiss="offcanvas">
-                                <a href="#contact" class="nav-link">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <button class="btn border-0" id="switchTheme" data-aos="fade-down" data-aos-delay="600"><i
-                        class="bi bi-brightness-high-fill"></i></button>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle Navigation Menu" data-aos="fade-down" data-aos-delay="600"><i
-                        class="bi bi-list toggle-icon"></i></button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- feature -->
-    <section id="feature">
-        <div class="container">
-            <h6 class="text-center"><span class="btn btn-sm theme-button theme-text" style="font-size: 20px;">Calculate
-                    Love</span></h6>
-            <h2 class="section-heading text-center">Projects</h2>
-            <div class="row justify-content-center mt-4 gy-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="love-calc-card">
-                    <h3>❤️ Zodiac Love Compatibility ❤️</h3>
-
-                    <div class="love-calc-input-group">
-                        <label for="loveCalcSign1">ඔබගේ ලග්නය (Your Sign)</label>
-                        <select id="loveCalcSign1">
-                            <option value="Aries">මේෂ (Aries)</option>
-                            <option value="Taurus">වෘෂභ (Taurus)</option>
-                            <option value="Gemini">මිථුන (Gemini)</option>
-                            <option value="Cancer">කටක (Cancer)</option>
-                            <option value="Leo">සිංහ (Leo)</option>
-                            <option value="Virgo">කන්‍යා (Virgo)</option>
-                            <option value="Libra">තුලා (Libra)</option>
-                            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
-                            <option value="Sagittarius">ධනු (Sagittarius)</option>
-                            <option value="Capricorn">මකර (Capricorn)</option>
-                            <option value="Aquarius">කුම්භ (Aquarius)</option>
-                            <option value="Pisces">මීන (Pisces)</option>
-                        </select>
-                    </div>
-
-                    <div class="love-calc-input-group">
-                        <label for="loveCalcSign2">සහකරු/සහකාරියගේ ලග්නය (Partner's Sign)</label>
-                        <select id="loveCalcSign2">
-                            <option value="Aries">මේෂ (Aries)</option>
-                            <option value="Taurus">වෘෂභ (Taurus)</option>
-                            <option value="Gemini">මිථුන (Gemini)</option>
-                            <option value="Cancer">කටක (Cancer)</option>
-                            <option value="Leo">සිංහ (Leo)</option>
-                            <option value="Virgo">කන්‍යා (Virgo)</option>
-                            <option value="Libra">තුලා (Libra)</option>
-                            <option value="Scorpio">වෘශ්චික (Scorpio)</option>
-                            <option value="Sagittarius">ධනු (Sagittarius)</option>
-                            <option value="Capricorn">මකර (Capricorn)</option>
-                            <option value="Aquarius">කුම්භ (Aquarius)</option>
-                            <option value="Pisces">මීන (Pisces)</option>
-                        </select>
-                    </div>
-
-                    <button class="love-calc-btn" onclick="calculateLove()">Calculate Love %</button>
-
-                    <div class="love-calc-result-area" id="loveCalcResultArea">
-                        <div class="love-calc-circular-progress" id="loveCalcCircularProgress">
-                            <span class="love-calc-progress-value" id="loveCalcProgressValue">0%</span>
+            <div id="mfResultArea" class="mf-result-area">
+                <h3 style="color: var(--mf-primary); margin-bottom: 20px;">✨ It's a Match! ✨</h3>
+                <div class="mf-fb-card">
+                    <div class="mf-fb-cover"></div>
+                    <div class="mf-fb-info">
+                        <img src="" alt="Profile Pic" class="mf-fb-avatar" id="mfMatchImg">
+                        <div class="mf-fb-details">
+                            <h3 class="mf-fb-name" id="mfMatchName">Name Here</h3>
+                            <p class="mf-fb-meta">
+                                <i class="fa-solid fa-graduation-cap" style="color: var(--mf-text-gray);"></i>
+                                <span id="mfMatchInstitute">Institute</span> &nbsp;•&nbsp;
+                                <i class="fa-solid fa-user-group" style="color: var(--mf-text-gray);"></i>
+                                <span id="mfMutualFriends">0 Mutual Friends</span>
+                            </p>
                         </div>
-                        <p class="love-calc-message" id="loveCalcLoveMessage">Calculating...</p>
+                        <div class="mf-fb-actions">
+                            <button class="mf-fb-btn mf-btn-add"><i class="fa-solid fa-user-plus"></i> Add Friend</button>
+                            <button class="mf-fb-btn mf-btn-msg"><i class="fa-brands fa-facebook-messenger"></i> Message</button>
+                        </div>
                     </div>
                 </div>
+                <button class="mf-find-btn mf-try-again-btn" onclick="autoDisplayProfile()">Find Another Match 🔄</button>
             </div>
+
         </div>
     </section>
-    <button id="hi-btn">hi</button>
 
-    <script src="assets/js/ajax.js"></script>
     <script>
-        // 1. Helper Function: නමේ අකුරුවලට අගයක් දීම (A=1, B=2, ... Z=26)
-        // (මෙම කොටසේ වෙනසක් නැත)
-        function getWordValue(word) {
-            word = word.toUpperCase();
-            let sum = 0;
-            for (let i = 0; i < word.length; i++) {
-                sum += word.charCodeAt(i) - 64;
-            }
-            return sum;
-        }
-
-        // --- NEW FUNCTION: Device එක අනුව අමතර අගයක් ලබා ගැනීම ---
-        function getDeviceBonus() {
-            const width = window.innerWidth;
-            // ටච් ස්ක්‍රීන් එකක්දැයි බැලීම (බොහෝ ෆෝන් සහ ටැබ්ලට් සඳහා)
-            const isTouch = (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
-
-            if (width < 768 && isTouch) {
-                // Mobile Phones: කුඩා තිරය සහ ටච් පහසුකම ඇත.
-                console.log("Device detected: Mobile Phone (+7%)");
-                return 7;
-            } else if (width >= 768 && isTouch) {
-                // Tablets: විශාල තිරය සහ ටච් පහසුකම ඇත.
-                console.log("Device detected: Tablet/Touch Laptop (+4%)");
-                return 4;
-            } else {
-                // Desktops/Laptops: ටච් නැති විශාල තිර.
-                console.log("Device detected: Desktop (No bonus)");
-                return 0;
-            }
-        }
-
-        // 2. Main Function: ගණනය කිරීම සහ ප්‍රතිඵලය පෙන්වීම
-        function calculateLove() {
-            const sign1Name = document.getElementById('loveCalcSign1').value;
-            const sign2Name = document.getElementById('loveCalcSign2').value;
-
-            const resultArea = document.getElementById('loveCalcResultArea');
-            const circularProgress = document.getElementById('loveCalcCircularProgress');
-            const progressValue = document.getElementById('loveCalcProgressValue');
-            // පණිවිඩය පෙන්වීමට පෙර එය reset කිරීම
-            document.getElementById('loveCalcLoveMessage').textContent = "Calculating...";
-
-            resultArea.classList.add('show');
-
-            // --- ගණිතමය ගණනය කිරීම (Calculation Logic) ---
-
-            let value1 = getWordValue(sign1Name);
-            let value2 = getWordValue(sign2Name);
-            let totalSum = value1 + value2;
-
-            // මූලික ප්‍රතිශතය (Base Percentage)
-            let percentage = (totalSum * 7) % 101;
-
-            // --- NEW: Device Bonus එක එකතු කිරීම ---
-            let deviceBonus = getDeviceBonus();
-            percentage += deviceBonus;
-
-            // Fun factor: අගය ඉතාම අඩු නම් එය තරමක් වැඩි කරමු
-            if (percentage < 35) {
-                percentage += 30;
-            }
-
-            // 100ට වඩා වැඩි නොවන බව තහවුරු කරමු (Bonus එක නිසා 100 පැනිය හැක)
-            if (percentage > 100) percentage = 100;
-
-            // --- ප්‍රතිඵලය ලස්සනට පෙන්වීම (Animation) ---
-            // (මෙම කොටසේ වෙනසක් නැත)
-            let startValue = 0;
-            let speed = 20;
-
-            if (window.loveCalcProgressTimer) {
-                clearInterval(window.loveCalcProgressTimer);
-            }
-
-            window.loveCalcProgressTimer = setInterval(() => {
-                if (startValue < percentage) {
-                    startValue++;
-                } else if (startValue > percentage) {
-                    startValue--;
+        (function() {
+            const maleNames = ["Kasun Perera", "Isuru Silva", "Tharindu Fernando", "Lahiru Jayasinghe", "Ravindu Kumara", "Chathuranga Herath", "Damith Gunasekara", "Sahan Amarasinghe", "Supun Wijesinghe", "Nipun Peiris", "Roshan Dias", "Dilan Bandara"];
+            const femaleNames = ["Nethmi Perera", "Dinithi Silva", "Pavithra Fernando", "Kaveesha Jayasinghe", "Amaya Kumari", "Sashini Gunasekara", "Piumi Herath", "Hansani Wijesinghe", "Dilini Abeywardena", "Ishara Ranasinghe", "Hiruni Peiris", "Yasara Dias"];
+            const institutes = ["UOM", "SLIIT", "Colombo", "NSBM", "School"];
+            let loadedProfiles = [];
+            (function generateProfiles() {
+                for (let i = 0; i < 200; i++) {
+                    const gender = Math.random() < 0.5 ? "male" : "female";
+                    const name = gender === "male" ? maleNames[Math.floor(Math.random() * maleNames.length)] : femaleNames[Math.floor(Math.random() * femaleNames.length)];
+                    const institute = institutes[Math.floor(Math.random() * institutes.length)];
+                    const initials = name.split(" ").map(n => n[0]).join("");
+                    const img = "https://ui-avatars.com/api/?name=" + encodeURIComponent(initials) + "&background=" + (gender === "male" ? "2c3e50" : "8e44ad") + "&color=f1c40f&size=256&rounded=true";
+                    loadedProfiles.push({
+                        name,
+                        gender,
+                        institute,
+                        img
+                    });
                 }
-
-                progressValue.textContent = `${startValue}%`;
-                circularProgress.style.background = `conic-gradient(var(--love-calc-primary-color) ${startValue * 3.6}deg, var(--love-calc-border-color) ${startValue * 3.6}deg)`;
-
-                if (startValue == percentage) {
-                    clearInterval(window.loveCalcProgressTimer);
-                    showFinalMessage(percentage);
-                }
-            }, speed);
-        }
-
-        // Helper Function: ප්‍රතිශතය අනුව පණිවිඩය වෙනස් කිරීම
-        // (මෙම කොටසේ වෙනසක් නැත)
-        function showFinalMessage(score) {
-            const loveMessage = document.getElementById('loveCalcLoveMessage');
-            let message = "";
-            if (score >= 90) {
-                message = "Wow! A Perfect Match! ❤️‍🔥";
-            } else if (score >= 75) {
-                message = "Great Compatibility! 😍";
-            } else if (score >= 50) {
-                message = "Good together, keep trying! 😊";
-            } else {
-                message = "Challenging, but love can win! 🤔";
-            }
-            loveMessage.textContent = message;
-        }
+            })();
+            const resultArea = document.getElementById("mfResultArea");
+            const matchName = document.getElementById("mfMatchName");
+            const matchImg = document.getElementById("mfMatchImg");
+            const matchInstitute = document.getElementById("mfMatchInstitute");
+            const mutualFriends = document.getElementById("mfMutualFriends");
+            window.autoDisplayProfile = function() {
+                const match = loadedProfiles[Math.floor(Math.random() * loadedProfiles.length)];
+                matchName.textContent = match.name;
+                matchImg.src = match.img;
+                matchInstitute.textContent = match.institute;
+                mutualFriends.textContent = (Math.floor(Math.random() * 70) + 10) + " Mutual Friends";
+                resultArea.style.display = "block";
+            };
+            window.addEventListener("load", autoDisplayProfile);
+        })();
     </script>
-
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="container">
-            <p class="text-center copyright-text">Made with <span class="heart-icon"><i class="bi bi-hearts"></i></span> by <span>Manjana Aloka</span>.</p>
-        </div>
-    </footer>
-
-    <button class="btn" id="backToTopButton" onclick="scrollToTop()" style="display: none;">
-        <span aria-label="Back to top">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="bi bi-arrow-up-square" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
-        </span>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="assets/js/aos.js" defer></script>
-    <script src="assets/js/jquery-3.7.1.min.js" defer></script>
-    <script src="assets/js/owl.carousel.min.js" defer></script>
-    <script src="assets/js/bootstrap.min.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
 
 </body>
 
-</html
+</html>

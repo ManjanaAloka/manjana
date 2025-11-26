@@ -1,5 +1,5 @@
- // Function to set the theme and update UI
- function setTheme(theme) {
+// Function to set the theme and update UI
+function setTheme(theme) {
     document.body.setAttribute('data-bs-theme', theme);
     localStorage.setItem('theme', theme);
     var switchThemeBtn = document.getElementById('switchTheme');
@@ -60,6 +60,28 @@ $(document).ready(function(){
         loop: true,
         autoplay: true,
         autoplayTimeout: 3000,
+        responsive:{
+            0:{
+                items:1,
+            },
+            768:{
+                items:2,
+            },
+            1170:{
+                items:3,
+            }
+        }
+    });
+
+    // Project Slider
+    $("#project-slider").owlCarousel({
+        items:3,
+        nav:true,
+        dots:true,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        margin: 20,
         responsive:{
             0:{
                 items:1,
